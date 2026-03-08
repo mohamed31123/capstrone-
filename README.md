@@ -21,6 +21,9 @@ Il s’agit d’un projet de synthèse qui met en pratique l’ensemble des noti
 - `docs/` : Documentation et diagrammes (draw.io).
 - `pom.xml` : Dépendances Maven.
 
+<img width="769" height="631" alt="Diagramme sans nom drawio (7)" src="https://github.com/user-attachments/assets/a7459d26-6288-471f-acee-44f78894ce83" />
+
+
 ---
 
 ## ⚙️ Prérequis
@@ -56,4 +59,6 @@ Ce TP illustre la capacité à concevoir une application complète, fiable et pe
 
 
 ## Auteur : 
+
+### EDDIARI MED
 
