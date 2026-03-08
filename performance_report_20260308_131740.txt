@@ -1,0 +1,65 @@
+=== RAPPORT DE PERFORMANCE ===
+Date: 2026-03-08 13:17:40
+=================================
+
+ Test : Recherche multi-critères
+ Temps d'exécution : 20ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Recherche de salles disponibles
+ Temps d'exécution : 15ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Pagination
+ Temps d'exécution : 4ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Accès répété avec cache
+ Temps d'exécution : 753ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Requête avec JOIN FETCH
+ Temps d'exécution : 12ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+
+----RECOMMANDATIONS ----
+2. Optimisation des requêtes recommandée:
+   - Utiliser JOIN FETCH pour éviter les problèmes N+1
+   - Créer des index sur les colonnes fréquemment utilisées dans les WHERE
+   - Optimiser les requêtes qui prennent plus de 500ms
+
+3. Recommandations générales:
+   - Surveiller régulièrement les performances avec des outils comme JProfiler
+   - Mettre en place un monitoring en production
+   - Considérer l'utilisation d'un pool de connexions optimisé

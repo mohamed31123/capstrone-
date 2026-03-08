@@ -1,0 +1,61 @@
+=== RAPPORT DE PERFORMANCE ===
+Date: 2026-03-08 12:54:46
+=================================
+
+ Test : Recherche multi-critères
+ Temps d'exécution : 9ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Recherche de salles disponibles
+ Temps d'exécution : 10ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Pagination
+ Temps d'exécution : 5ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Accès répété avec cache
+ Temps d'exécution : 442ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+ Test : Requête avec JOIN FETCH
+ Temps d'exécution : 24ms
+ Nombre de requêtes : 0
+ Entités chargées : 0
+ Hits du cache : 0
+ Miss du cache : 0
+ Taille du résultat : 0
+ Ratio de hit du cache: 0,00%
+-------------------------------------
+
+
+----RECOMMANDATIONS ----
+
+3. Recommandations générales:
+   - Surveiller régulièrement les performances avec des outils comme JProfiler
+   - Mettre en place un monitoring en production
+   - Considérer l'utilisation d'un pool de connexions optimisé

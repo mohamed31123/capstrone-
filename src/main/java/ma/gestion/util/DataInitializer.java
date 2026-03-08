@@ -22,21 +22,16 @@ public class DataInitializer {
         try {
             em.getTransaction().begin();
 
-            // Création des équipements
             Equipement[] equipements = createEquipements(em);
 
-            // Création des utilisateurs
             Utilisateur[] utilisateurs = createUtilisateurs(em);
 
-            // Création des salles
             Salle[] salles = createSalles(em, equipements);
 
-            // Création des réservations
             createReservations(em, utilisateurs, salles);
 
             em.getTransaction().commit();
             System.out.println("Jeu de données initialisé avec succès !");
-
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
@@ -126,7 +121,6 @@ public class DataInitializer {
             salles[i].setEtage(i % 3 + 1);
             salles[i].setNumero("A" + (i+1));
 
-            // Équipements de base pour toutes les salles
             salles[i].addEquipement(equipements[3]); // Tableau blanc
             salles[i].addEquipement(equipements[7]); // WiFi
             salles[i].addEquipement(equipements[9]); // Prises électriques
@@ -142,7 +136,6 @@ public class DataInitializer {
             em.persist(salles[i]);
         }
 
-        // Bâtiment B - Salles de formation
         for (int i = 5; i < 10; i++) {
             salles[i] = new Salle("Salle B" + (i-4), 20 + (i-5)*5);
             salles[i].setDescription("Salle de formation équipée");
@@ -150,7 +143,6 @@ public class DataInitializer {
             salles[i].setEtage(i % 4 + 1);
             salles[i].setNumero("B" + (i-4));
 
-            // Équipements pour salles de formation
             salles[i].addEquipement(equipements[0]); // Projecteur
             salles[i].addEquipement(equipements[3]); // Tableau blanc
             salles[i].addEquipement(equipements[6]); // Ordinateur fixe
@@ -164,7 +156,6 @@ public class DataInitializer {
             em.persist(salles[i]);
         }
 
-        // Bâtiment C - Salles de conférence
         for (int i = 10; i < 15; i++) {
             salles[i] = new Salle("Salle C" + (i-9), 50 + (i-10)*20);
             salles[i].setDescription("Salle de conférence haut de gamme");
@@ -172,14 +163,13 @@ public class DataInitializer {
             salles[i].setEtage(i % 3 + 1);
             salles[i].setNumero("C" + (i-9));
 
-            // Équipements pour salles de conférence
-            salles[i].addEquipement(equipements[0]); // Projecteur
-            salles[i].addEquipement(equipements[2]); // Visioconférence
-            salles[i].addEquipement(equipements[4]); // Système audio
-            salles[i].addEquipement(equipements[5]); // Microphones
-            salles[i].addEquipement(equipements[7]); // WiFi
-            salles[i].addEquipement(equipements[8]); // Climatisation
-            salles[i].addEquipement(equipements[9]); // Prises électriques
+            salles[i].addEquipement(equipements[0]);
+            salles[i].addEquipement(equipements[2]);
+            salles[i].addEquipement(equipements[4]);
+            salles[i].addEquipement(equipements[5]);
+            salles[i].addEquipement(equipements[7]);
+            salles[i].addEquipement(equipements[8]);
+            salles[i].addEquipement(equipements[9]);
 
             em.persist(salles[i]);
         }
@@ -197,7 +187,6 @@ public class DataInitializer {
                 "Séminaire", "Réunion de direction", "Démonstration produit"
         };
 
-        // Créer 100 réservations réparties sur les 3 prochains mois
         for (int i = 0; i < 100; i++) {
             int jourOffset = random.nextInt(90); // 0-89 jours à partir d'aujourd'hui
             int heureDebut = 8 + random.nextInt(9); // 8h-16h
@@ -206,14 +195,12 @@ public class DataInitializer {
             LocalDateTime dateDebut = now.plusDays(jourOffset).withHour(heureDebut).withMinute(0).withSecond(0);
             LocalDateTime dateFin = dateDebut.plusHours(duree);
 
-            // Sélectionner un utilisateur et une salle aléatoires
             Utilisateur utilisateur = utilisateurs[random.nextInt(utilisateurs.length)];
             Salle salle = salles[random.nextInt(salles.length)];
 
-            // Créer la réservation
-            Reservation reservation = new Reservation(dateDebut, dateFin, motifs[random.nextInt(motifs.length)]);
+            Reservation reservation = new Reservation(dateDebut, dateFin,
+                    motifs[random.nextInt(motifs.length)], salle, utilisateur);
 
-            // Définir le statut (80% confirmées, 10% en attente, 10% annulées)
             int statutRandom = random.nextInt(10);
             if (statutRandom < 8) {
                 reservation.setStatut(StatutReservation.CONFIRMEE);
@@ -223,10 +210,10 @@ public class DataInitializer {
                 reservation.setStatut(StatutReservation.ANNULEE);
             }
 
-            // Établir les relations
             utilisateur.addReservation(reservation);
             salle.addReservation(reservation);
 
+            // Persister la réservation
             em.persist(reservation);
         }
     }
