@@ -36,7 +36,17 @@ Il s’agit d’un projet de synthèse qui met en pratique l’ensemble des noti
 ## VIDEO DEMO : 
 
 
+
+https://github.com/user-attachments/assets/0e68ab0e-46aa-4ace-9dc4-b1318610bd37
+
+
 ## CONCLUSION : 
+
+#### Ce projet de réservation de salles a permis de mettre en pratique l’ensemble des concepts étudiés au cours du TP. L’application intègre un modèle de données complet avec relations et gestion du optimistic locking, un cache de second niveau pour améliorer les performances, ainsi qu’un jeu de données réaliste pour valider les fonctionnalités. Les scénarios de test couvrent les cas d’usage principaux et garantissent la fiabilité du système, tandis que le script de migration assure la continuité sur une base existante.
+
+Grâce au rapport de performance, des optimisations ont pu être identifiées et mises en œuvre, renforçant la robustesse et la scalabilité de l’application. Le résultat est une solution prête pour un déploiement en production, offrant des fonctionnalités solides de recherche de disponibilité, de gestion des réservations et d’optimisation des performances.
+
+Ce TP illustre la capacité à concevoir une application complète, fiable et performante, en respectant les bonnes pratiques de développement et en anticipant les besoins d’évolution.
 
 
 
