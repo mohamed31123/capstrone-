@@ -60,5 +60,5 @@ Ce TP illustre la capacité à concevoir une application complète, fiable et pe
 
 ## Auteur : 
 
-### EDDIARI MED
+### EDDINARI MED
 
